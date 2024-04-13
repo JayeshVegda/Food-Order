@@ -1,0 +1,305 @@
+@font-face {
+  font-family: osm;
+  src: url('../css/fonts/fontawesome-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: ecb;
+  src: url('../css/fonts/ecb.ttf');
+}
+
+@font-face {
+  font-family: icon1;
+  src: url('../css/fonts/glyphicons-halflings-regular.woff') format('woff');
+}
+
+body {
+  scroll-behavior: smooth;
+  background: #FCFCFC;
+
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+section{
+  height: 100%;
+  scroll-margin: 10px;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  display: flex;
+  background: #FCFCFC;
+}
+
+#vector1{
+  width:  63%;
+  height: 62%;
+  display: flex;
+  margin-top: 90px;
+  margin-left: 390px;
+ 
+}
+
+#main_text{
+  font-size: 60px;
+  font-family: ecb;
+  margin-left: 480px; 
+}
+
+.arrow {
+  box-sizing: border-box;
+  height: 2vw;
+  width: 2vw;
+  border-style: solid;
+  border-color: rgb(51, 22, 22);
+  border-width: 0px 1px 1px 0px;
+ margin-top: 28px;
+  margin-left: 73%;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out;
+}
+
+.arrow:hover {
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+}
+
+
+
+
+
+
+ /* SEACTION 2 */
+#s2{
+  display: flex;
+  background-color: #FCFCFC;
+  height: 100vh;
+}
+
+.con2{
+  display: inline-block;
+  width: 190vh;
+  background-color: #FCFCFC;
+  height: 100vh;
+}
+
+.con2 #main_text_s2 {
+  padding-left: 6%;
+  padding-top: 6%;
+  color: rgb(36, 36, 36);
+ 
+  
+}
+
+#main_text_s2{
+  font-family: ecb;
+  font-size: 60px;
+}
+
+
+#main_text_s2:after { /* this is the border */
+  content:"";
+  display:flex;
+  width: 7em;
+  max-width:70%;
+  border-bottom: 0.1em solid red;
+  margin: 0;
+}
+
+
+#sub_text_s2{
+  font-size: 30px;
+  color: rgba(124, 124, 124, 0.911);
+  text-align: left;
+  word-wrap: break-word ;
+  font-family: ecb;
+  font-weight: 200;
+  
+}
+
+.con2 #sub_text_s2{
+  display: block;
+  margin-top: 2%;
+  margin-left: 8%;
+}
+
+
+
+
+
+
+#abt{
+  height: 60%;
+}
+
+.con_abt{
+  display: grid;
+  grid-template-columns: 360px 360px 360px  ;
+  margin-left: 105px;
+  grid-gap: 38px;
+  margin-top: 2%;
+  height: 120px;
+}
+
+
+#head_abt{
+  font-family: ecb;
+  text-align: center;
+}
+
+.img_abt img{
+  width: 300px;
+  
+  display: flex;
+}
+
+.con_abt .img_abt{
+ 
+    margin-top: -59px;
+    display: flex;
+    clear: both;
+}
+
+#head_abt{
+  font-size: 38px;
+}
+
+.add1 #sub_abt{
+  margin-bottom: 1px;
+  margin-top: 10px;
+  padding-left: 15px;
+  text-align: right;
+  font-weight: 200;
+  text-align: left;
+}
+
+.add1 i{
+  padding-top: 4px;
+  font-family: ecb, osm;
+}
+
+
+.add1 span{
+  padding-top: 4px;
+  font-family: ecb, icon1;
+  margin-bottom: 1px;
+  margin-top: 10px;
+  padding-left: 15px;
+font-size: 17px;
+  text-align: right;
+  font-weight: 200;
+  text-align: left;
+}
+
+.add1 .glyphicon{
+  
+  width: 90%;
+}
+
+
+section{
+  background-color: #FCFCFC;
+}
+
+
+
+
+/* new */
+
+#team{
+  display: inline;
+  
+}
+
+.content {
+  width: 80%;
+  padding: 0;
+  
+  padding-bottom: 50px;
+  margin: 0 auto;
+}
+
+.centerplease {
+  
+  margin: 0 auto;
+  max-width: 270px;
+  font-size: 40px;
+}
+
+/*Question*/
+.question {
+  position: relative;
+  font-size: 1.5em;
+  margin: 0;
+  font-family: ecb;
+  padding: 10px 10px 10px 50px;
+  display: block;
+  width:100%;
+  cursor: pointer;
+}
+/*Answer*/
+.answers {
+  
+  width:100%!important;
+  height: 0;
+  font-size: 1.2em;
+  
+  overflow: hidden;
+  z-index: -1;
+  position: relative;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.questions:checked ~ .answers{
+  height: auto;
+  opacity: 1;
+  margin-left: 50px;
+  padding: 5px;
+  
+}
+
+/*FAQ Toggle*/
+.plus {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 8px;
+  z-index: 5;
+  font-size: 2.2em;
+  line-height: 100%;
+  -webkit-user-select: none;    
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+
+}
+
+.questions:checked ~ .plus {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+}
+
+.questions {
+  display: none;
+  
+}
+
+
+
+

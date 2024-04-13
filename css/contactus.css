@@ -1,0 +1,120 @@
+:root {
+  --primary-color: #010712;
+  --secondary-color: #818386;
+  --bg-color: #FCFDFD;
+  --button-color: #3B3636;
+  --h1-color: #3F444C;
+}
+
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+}
+
+.left-col {
+  width: 47vw;
+  height: 100%;
+  background-image: url("../images/contactus_img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.right-col {
+  background: var(--bg-color);
+  width: 50vw;
+  height: 100vh;
+  padding: 6rem 3rem;
+}
+
+#head_text, #head_text #input1, #submit1, .description {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+
+#head_text {
+  color:var(--h1-color);
+  text-transform: uppercase;
+  font-size: 6rem;
+  letter-spacing: 0.5rem;
+  font-weight: 300;
+}
+
+#lbl{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+#input1, .description {
+  color: var(--secondary-color);
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+
+#contact-form3 {
+  width: 31.25rem;
+  position: relative;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+#input1, #message2, #lbl {
+  width: 40vw;
+  display: block;
+}
+
+#head_subtext, placeholder, #input1, #message2 {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+#input1::placeholder, #message2::placeholder {
+  color: var(--primary-color);
+}
+
+#input1, #message2 {
+  color: var(--primary-color);
+  font-weight: 500;
+  background: var(--bg-color);
+  border: none;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+#message2 {
+  resize: none;
+}
+
+#submit1 {
+ 
+  text-transform: uppercase;
+  font-weight: 300;
+  background: var(--button-color);
+  color: var(--bg-color);
+  width: 10rem;
+  height: 3.25rem;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+#input1:hover, #message2:hover, #submit1:hover {
+  opacity: 0.5;
+}
+
+#submit1:active {
+  opacity: 0.8;
+}

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: ecb;
+  src: url('fonts/ecb.ttf');
+}
+
+#s1{
+  height: 70%;
+  width: 100%;
+}
+
+.con{
+  display: block;
+  margin-top: 140px;
+  margin-left: 280px;
+  
+}
+
+.con_img img{
+  height: 300px;
+  width: 802px;
+}
+
+.text{
+  margin-top: 10px;
+  margin-left: 120px;
+  font-family: ecb;
+}
+
+#head_text{
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#head_subtext{
+  font-size: 18px;
+  margin-left: 160px;
+}
+
