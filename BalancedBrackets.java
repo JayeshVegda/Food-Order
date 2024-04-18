@@ -1,61 +1,79 @@
-// Java program for checking
-// balanced brackets
-import java.util.*;
 
-public class BalancedBrackets {
+class Solution {
+    public static boolean isValid(String s) {
+        int n = s.length();
+      
+        char open_para[] = {'(', '{' , '['}; //n = 2
+        char close_para[] = {']', ')', '}',}; //n = 2
+        int open = 0;
+        int close = 0;
 
-	// function to check if brackets are balanced
-	static boolean areBracketsBalanced(String expr)
-	{
-		// Using ArrayDeque is faster than using Stack class
-		Deque<Character> stack = new ArrayDeque<Character>();
+        //string check
+        for(int i = 0; i<n; i++){
+           char temp =  s.charAt(i);
+           System.out.println();
+            System.out.println("Current Poistion : " + temp);
 
-		// Traversing the Expression
-		for (int i = 0; i < expr.length(); i++) {
-			char x = expr.charAt(i);
+           //open check
+           for(int j=0; j<open_para.length; j++){
 
-			if (x == '(' || x == '[' || x == '{') {
-				stack.push(x);
-				continue;
-			}
-			if (stack.isEmpty())
-				return false;
-			char check;
-			switch (x) 
-			{
-			case ')':
-				check = stack.pop();
-				if (check == '{' || check == '[')
-					return false;
-				break;
 
-			case '}':
-				check = stack.pop();
-				if (check == '(' || check == '[')
-					return false;
-				break;
+            if(temp == open_para[j]){
+                switch (open_para[j]) {
+                    case '(':
+                        open = open + 1;
+                        break;
+                    case '[':
+                        open = open + 2;
+                        break;
+                    case '{':
+                        open = open + 3;
+                        break;
+                    default:
+                        break;
+                }
+                // System.out.println("open_para" + temp + ", " + open_para[j]);
+            }
 
-			case ']':
-				check = stack.pop();
-				if (check == '(' || check == '{')
-					return false;
-				break;
-			}
-		}
+           }
 
-		// Check Empty Stack
-		return (stack.isEmpty());
-	}
+           //close check
+           for(int j = 0; j<close_para.length; j++){
+            if(temp == close_para[j]){
+                switch (close_para[j]) {
+                    case ')':
+                        close = close + 1;
+                        break;
+                    case ']':
+                        close = close + 2;
+                        break;
+                    case '}':
+                         close = close + 3;
+                        break;
+                    default:
+                        break;
+                }
+                // System.out.println("close_para" + temp + ", " + close_para[j]);
+            }
+           }
 
-	// Driver code
-	public static void main(String[] args)
-	{
-		String expr = "(][)";
+        }
 
-		// Function call
-		if (areBracketsBalanced(expr))
-			System.out.println("Balanced ");
-		else
-			System.out.println("Not Balanced ");
-	}
+       
+            System.out.println("OPEN FINAL : " + open + ", ");
+            System.out.println("Close FINAL : " + close+ ", ");
+            System.out.println();
+       
+
+        if(open != close){
+            return false;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args){
+        String s = "[]([])";
+        System.out.println(isValid(s));
+    }
 }
