@@ -1,0 +1,116 @@
+
+package Ins;
+import java.sql.*;
+import java.io.*;
+import java.util.Scanner;
+
+import java.lang.*;
+
+/**
+ *
+ * @author Administrator
+ */
+public class crud {
+    public static void main(String args[]) throws SQLException
+    {
+        String query,tname="";
+        Scanner sc = new Scanner(System.in);
+        while(true)
+        {
+            System.out.println("Enter Your Choice ::");
+            System.out.println("0.Create Table");
+            System.out.println("1.Insert Data::");
+            System.out.println("2. Display");
+            System.out.println("3. Delete");
+            System.out.println("4. Update");
+            System.out.println("5. Exit");
+            
+            int ch = sc.nextInt();
+            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/demo1","root","");
+                        Statement s= con.createStatement();
+            switch(ch)
+            {
+                case 0:
+                       System.out.println("Please Enter Table Name::");
+                        tname=sc.next();
+                       
+                       query="create table "+ tname +" (id INT NOT NULL  AUTO_INCREMENT , name VARCHAR(20) ,city VARCHAR(20), PRIMARY KEY (id))";
+                       int res = s.executeUpdate(query);
+                         if(res==0)
+                          System.out.println("Table Created Successfully");  
+                        else
+                          System.out.println("Failed creating table");
+                       break;
+                case 1:
+                        System.out.println("Please Enter Name::");
+                        String sname=sc.next();
+                        
+                        
+                        System.out.println("Please Enter City::");
+                        String scity=sc.next();
+            
+                         query="insert into "+tname+"(name,city) values('"+sname+"','"+scity+"')";
+                        // System.out.println(query);
+                        
+                         res = s.executeUpdate(query);
+                        //System.out.println(res);
+                        if(res==1)
+                          System.out.println("Data Insert Successfully");  
+                        else
+                          System.out.println("Failed to Data Insert");
+                            
+                        break;
+                        
+                case 2:
+                        ResultSet rs=s.executeQuery("select * from "+tname);  
+                        while(rs.next())  
+                        {
+                            System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+                        } 
+                        break;
+                
+                case 3:
+                       System.out.println("Please Enter ID you want to delete::");
+                       int sid =sc.nextInt();
+                       System.out.println(sid);
+                         query="delete from "+ tname + " where id="+sid;
+                         System.out.println(query);
+                        
+                        res = s.executeUpdate(query);
+                         if(res==1)
+                          System.out.println("Data Deleted Successfully");  
+                        else
+                          System.out.println("Failed to Data deleted");
+                          
+                       break;
+                
+                case 4:
+                        System.out.println("Please Enter ID you want to Update::");
+                        sid =sc.nextInt();
+                      
+                       
+                        System.out.println("Please Enter Name::");
+                        sname=sc.next();
+                         
+                        System.out.println("Please Enter City::");
+                        scity=sc.next();
+            
+                        query="update "+tname+" set name='"+sname+"',city='"+scity+"' where id="+sid;
+                       
+                        res = s.executeUpdate(query);
+                        //System.out.println(res);
+                        if(res==1)
+                          System.out.println("Data Update Successfully");  
+                        else
+                          System.out.println("Failed to Data Update");
+                        break;
+                case 5:
+                    System.exit(0);
+                default:
+                     System.out.println("Invalid Choice");
+            }
+        }
+            
+            
+    }
+}
