@@ -1,0 +1,1818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   tools:context=".MainActivity">
+
+
+   <TextView
+       android:id="@+id/text1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="50dp"
+       android:layout_weight="1"
+       android:background="#E1ACAC"
+       android:gravity="center"
+       android:text="Here's your Screen"
+       android:textColor="#040000"
+       android:textSize="25sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+   <EditText
+       android:id="@+id/uname"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_weight="0"
+       android:ems="10"
+       android:hint="Please Enter Your Name"
+       android:inputType="textPersonName"
+       android:text=""
+       android:textColorHint="#1B1818" />
+   <EditText
+       android:id="@+id/phone"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:hint="Please Enter Your Phone number"
+       android:textColorHint="#1B1818"/>
+   <Button
+       android:id="@+id/btn1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="#DFAE9E"
+       android:shadowColor="#B67171"
+       android:text="Show my Name"
+       android:textColorLink="#CF9E9E"
+       app:rippleColor="#A65A5A"
+       android:textSize="20sp"
+       android:layout_marginBottom="50dp"
+"
+       />
+
+
+</LinearLayout>
+
+
+
+
+Java code
+    
+
+
+package com.example.edittext;
+
+
+import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+import java.text.BreakIterator;
+
+
+public class MainActivity extends AppCompatActivity {
+   private TextView text1;
+   private Button btn1;
+   private EditText uname, phone;
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       text1 = (TextView) findViewById(R.id.text1);
+       btn1 = (Button) findViewById(R.id.btn1);
+       uname = (EditText) findViewById(R.id.uname);
+       phone = (EditText) findViewById(R.id.phone);
+
+
+       btn1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+
+               String userName =  uname.getText().toString();
+               String uphone  = pone.getText().toString();
+
+
+                   text1.setText("Your name is:" + userName + ",\n" + "Your Phone Number is: "+ uphone);
+
+
+           }
+       });
+
+
+
+
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Textview app
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/textview"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:layout_margin="0dp"
+   android:layout_marginLeft="0dp"
+   android:layout_marginTop="0dp"
+   android:layout_marginRight="0dp"
+   android:layout_marginBottom="0dp"
+   android:background="@color/white"
+   android:padding="0dp"
+   android:paddingLeft="0dp"
+   android:orientation="vertical"
+   android:theme="@style/MaterialAlertDialog.Material3.Title.Panel"
+   tools:context=".MainActivity">
+
+
+
+
+   <TextView
+       android:id="@+id/text1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="#DFD5D5"
+       android:gravity="left"
+       android:padding="10dp"
+       android:paddingLeft="0dp"
+       android:text="Parul University"
+       android:textSize="30sp"
+       android:textStyle="bold" />
+
+
+   <TextView
+       android:id="@+id/text2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/text1"
+       android:layout_weight="1"
+       android:background="#E88989"
+       android:paddingLeft="20dp"
+       android:paddingTop="20dp"
+       android:text="TextView Program"
+       android:textSize="15sp" />
+
+
+   <TextView
+       android:id="@+id/text3"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/text2"
+       android:height="50dp"
+       android:background="#DCCECE"
+       android:gravity="center"
+       android:text="This is an TextView Program"
+       android:textSize="20sp" />
+</LinearLayout>
+
+
+
+
+
+
+
+
+Mutltielement
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity"
+   android:orientation="vertical">
+
+
+   <CheckBox
+       android:id="@+id/che1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:text="VolleyBall"
+       android:textStyle="bold"
+       tools:layout_editor_absoluteX="36dp"
+       tools:layout_editor_absoluteY="17dp" />
+
+
+   <CheckBox
+       android:id="@+id/che2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:text="Tennis"
+       android:textStyle="bold" />
+
+
+   <CheckBox
+       android:id="@+id/che3"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:text="BasketBall"
+       android:textStyle="bold" />
+
+
+   <CheckBox
+       android:id="@+id/che4"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:text="Hockey"
+       android:textStyle="bold" />
+
+
+   <CheckBox
+       android:id="@+id/ch5"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:text="Cricket"
+       android:textStyle="bold" />
+   <SeekBar
+       android:layout_width="match_parent"
+       android:layout_height="32dp"
+       android:layout_marginTop="18dp"
+       android:id="@+id/simpleSeekBar"
+       android:indeterminate="false"
+       android:max="200"
+       android:min="0"
+       android:progress="60"
+       android:layout_marginLeft="18dp"
+       android:layout_marginRight="18dp"/>
+   <RatingBar
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:numStars="5"
+       android:layout_gravity="center"
+       android:id="@+id/rtin1"
+       android:layout_marginTop="18dp"/>
+   <RadioGroup
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/rdi1">
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Mobile development"
+           android:id="@+id/rdio1"
+           android:textStyle="bold"
+           android:textSize="25sp"/>
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Web development"
+           android:id="@+id/rdio2"
+           android:textStyle="bold"
+           android:textSize="25sp"/>
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Specilization"
+           android:id="@+id/rdio3"
+           android:textStyle="bold"
+           android:textSize="25sp"/>
+
+
+   </RadioGroup>
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="30dp"
+       android:layout_marginRight="30dp"
+       android:layout_marginTop="40dp"
+       android:text="click me "
+       android:id="@+id/buttons"
+       />
+</LinearLayout>
+
+
+
+
+package com.example.multielements;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RatingBar;
+import android.widget.SeekBar;
+import android.widget.Toast;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   public CheckBox ch1, ch2, ch3, ch4, ch5;
+   public SeekBar seekBar;
+   public RatingBar ratingBar;
+   public RadioGroup radioGroup; //,
+   public RadioButton rb1;
+   public Button btn;
+   Button submitButton;
+   SeekBar simpleSeekBar;
+
+
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       //seekbaar
+       simpleSeekBar=(SeekBar)findViewById(R.id.simpleSeekBar);
+
+
+
+
+       ch1 = findViewById(R.id.che1);
+       ch2 = findViewById(R.id.che2);
+       ch3 = findViewById(R.id.che3);
+       ch4 = findViewById(R.id.che4);
+       ch5 = findViewById(R.id.ch5);
+       btn = findViewById(R.id.buttons);
+
+
+       simpleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+           int progressChangedValue = 0;
+
+
+           public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+               progressChangedValue = progress;
+           }
+
+
+           public void onStartTrackingTouch(SeekBar seekBar) {
+               // TODO Auto-generated method stub
+           }
+
+
+           public void onStopTrackingTouch(SeekBar seekBar) {
+               Toast.makeText(MainActivity.this, "Seek bar progress is :" + progressChangedValue,
+                       Toast.LENGTH_SHORT).show();
+           }
+       });
+
+
+       btn.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+               check();
+           }
+       });
+
+
+
+
+   }
+
+
+   public void check() {
+       String msg = "";
+       if (ch1.isChecked())
+           msg = msg + " " + "Volleyball";
+       if (ch2.isChecked())
+           msg = msg + " " + "BasketBall";
+       if (ch3.isChecked())
+           msg = msg + " " + "Tennis";
+       if (ch4.isChecked())
+           msg = msg + " " + "Hockey";
+       if (ch5.isChecked())
+           msg = msg + " " + "Cricket";
+
+
+       Toast.makeText(this, "You have Selected " + msg, Toast.LENGTH_SHORT).show();
+
+
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RatinBar app
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="submit"
+       android:id="@+id/button"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.615" />
+
+
+   <RatingBar
+       android:id="@+id/ratingBar"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="72dp"
+       android:layout_marginTop="60dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />  
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+package com.example.ratingbar;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   RatingBar ratingbar;
+   Button button;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       addListenerOnButtonClick();
+       ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+           Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+           v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+           return insets;
+       });
+   }
+
+
+   private void addListenerOnButtonClick() {
+       ratingbar=(RatingBar)findViewById(R.id.ratingBar);
+       button=(Button)findViewById(R.id.button);
+       button.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               String rating=String.valueOf(ratingbar.getRating());
+               Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
+           }
+       });
+   }
+}
+
+
+
+
+
+
+Alert Dialog prog
+Xml code: 
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/button"
+       android:text="Close app"
+       android:textSize="40sp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+String.xml code:
+
+
+<resources>
+   <string name="app_name">AlertDialog</string>
+   <string name="dialog_message">Welcome to Alert Dialog</string>
+   <string name="dialog_title">Parul Alert Dialog</string>
+</resources>
+
+
+
+
+
+
+Java Code :
+
+
+
+
+
+
+package com.example.alertdialog;
+
+
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   Button closeButton;
+   AlertDialog.Builder builder;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       closeButton = (Button) findViewById(R.id.button);
+       builder = new AlertDialog.Builder(this);
+       closeButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               //Setting message manually and performing action on button click
+               builder.setMessage("Do you want to close this application ?")
+                       .setCancelable(false)
+                       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                               finish();
+                               Toast.makeText(getApplicationContext(),"you choose yes action for alertbox",
+                                       Toast.LENGTH_SHORT).show();
+                           }
+                       })
+                       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                               //  Action for 'NO' Button
+                               dialog.cancel();
+                               Toast.makeText(getApplicationContext(),"you choose no action for alertbox",
+                                       Toast.LENGTH_SHORT).show();
+                           }
+                       });
+               //Creating dialog box
+               AlertDialog alert = builder.create();
+               //Setting the title manually
+               alert.setTitle("AlertDialogExample");
+               alert.show();
+           }
+       });
+   }
+}
+
+
+
+
+Autocpomp;letetextview
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="What is your favourite programming language?"
+       android:textSize="20dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintHorizontal_bias="0.495"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.338" />
+
+
+   <AutoCompleteTextView
+       android:id="@+id/autoCompleteTextView"
+       android:layout_width="200dp"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="112dp"
+       android:layout_marginTop="376dp"
+       android:text=""
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+Java code
+package com.example.autocomplete;
+
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   String[] language ={"C","C++","Java",".NET","iPhone","Android","ASP.NET","PHP"};
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       //Creating the instance of ArrayAdapter containing list of language names
+
+
+       ArrayAdapter<String> adapter = new ArrayAdapter<String>
+               (this,android.R.layout.select_dialog_item,language);
+       //Getting the instance of AutoCompleteTextView
+
+
+       AutoCompleteTextView actv =  (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+       actv.setThreshold(1);//will start working from first character
+       actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
+       actv.setTextColor(Color.RED);
+   }
+}
+
+
+
+
+
+
+Toggle Button
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <ToggleButton
+       android:id="@+id/toggleButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="8dp"
+       android:layout_marginTop="80dp"
+       android:text="ToggleButton"
+       android:textOff="Off"
+       android:textOn="On"
+       app:layout_constraintEnd_toStartOf="@+id/toggleButton2"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+   <ToggleButton
+       android:id="@+id/toggleButton2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginRight="60dp"
+       android:layout_marginTop="80dp"
+       android:text="ToggleButton"
+       android:textOff="Off"
+       android:textOn="On"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+   <Button
+       android:id="@+id/button"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="144dp"
+       android:layout_marginLeft="148dp"
+       android:text="Submit"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+Java code
+
+
+
+
+package com.example.toggle;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   private ToggleButton toggleButton1, toggleButton2;
+   private Button buttonSubmit;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       addListenerOnButtonClick();
+   }
+
+
+   public void addListenerOnButtonClick(){
+       //Getting the ToggleButton and Button instance from the layout xml file
+       toggleButton1=(ToggleButton)findViewById(R.id.toggleButton);
+       toggleButton2=(ToggleButton)findViewById(R.id.toggleButton2);
+       buttonSubmit=(Button)findViewById(R.id.button);
+
+
+       //Performing action on button click
+       buttonSubmit.setOnClickListener(new View.OnClickListener(){
+
+
+           @Override
+           public void onClick(View view) {
+               StringBuilder result = new StringBuilder();
+               result.append("ToggleButton1 : ").append(toggleButton1.getText());
+               result.append("\nToggleButton2 : ").append(toggleButton2.getText());
+               //Displaying the message in toast
+               Toast.makeText(getApplicationContext(), result.toString(),Toast.LENGTH_LONG).show();
+           }
+
+
+       });
+
+
+   }
+}
+
+
+
+
+
+
+Datepicker
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <TextView
+       android:id="@+id/textView1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/button1"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true"
+       android:layout_marginBottom="102dp"
+       android:layout_marginLeft="30dp"
+       android:layout_marginStart="30dp"
+       android:text="" />
+
+
+   <Button
+       android:id="@+id/button1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="20dp"
+       android:text="Change Date" />
+
+
+   <DatePicker
+       android:id="@+id/datePicker"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/textView1"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="36dp" />
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+package com.example.datepicker;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   DatePicker picker;
+   Button displayDate;
+   TextView textview1;
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main); textview1=(TextView)findViewById(R.id.textView1);
+       picker=(DatePicker)findViewById(R.id.datePicker);
+       displayDate=(Button)findViewById(R.id.button1);
+
+
+       textview1.setText("Current Date: "+getCurrentDate());
+
+
+       displayDate.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View view) {
+
+
+               textview1.setText("Change Date: "+getCurrentDate());
+           }
+
+
+       });
+
+
+   }
+   public String getCurrentDate(){
+       StringBuilder builder=new StringBuilder();;
+       builder.append((picker.getMonth() + 1)+"/");//month is 0 based
+       builder.append(picker.getDayOfMonth()+"/");
+       builder.append(picker.getYear());
+       return builder.toString();
+   }
+}
+Time Picker
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+   <TextView
+       android:id="@+id/textView1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/button1"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true"
+       android:layout_marginBottom="102dp"
+       android:layout_marginLeft="30dp"
+       android:layout_marginStart="30dp"
+       android:text="" />
+
+
+   <Button
+       android:id="@+id/button1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="20dp"
+       android:text="Change Time" />
+
+
+   <TimePicker
+       android:id="@+id/timePicker"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/textView1"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="36dp" />
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+Java code
+
+
+
+
+package com.example.timepicker;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   TextView textview1;
+   TimePicker timepicker;
+   Button changetime;
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       textview1 = (TextView) findViewById(R.id.textView1);
+       timepicker = (TimePicker) findViewById(R.id.timePicker);//Uncomment the below line of code for 24 hour view
+       timepicker.setIs24HourView(true);
+       changetime = (Button) findViewById(R.id.button1);
+
+
+       textview1.setText(getCurrentTime());
+
+
+       changetime.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               textview1.setText(getCurrentTime());
+           }
+       });
+
+
+   }
+
+
+   public String getCurrentTime(){
+       String currentTime="Current Time: "+timepicker.getCurrentHour()+":"+timepicker.getCurrentMinute();
+       return currentTime;
+   }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Listview
+
+
+Activity_main.xml 
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   tools:context=".MainActivity" >
+
+
+   <ListView
+       android:id="@+id/mobile_list"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" >
+   </ListView>
+
+
+</LinearLayout>
+
+
+
+
+
+
+Then create another xml file for the listing view name is : acitivity_listview.xml
+
+
+
+
+            Acitivity_listview.xml
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/label"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:padding="10dip"
+   android:textSize="16dip"
+   android:textStyle="bold" >
+</TextView>
+
+
+
+
+JAVA CODE 
+
+
+package com.example.listview;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+   String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
+           "WebOS","Ubuntu","Windows7","Max OS X"};
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       ArrayAdapter adapter = new ArrayAdapter<String>(this,
+               R.layout.activity_listview, mobileArray);
+
+
+       ListView listView = (ListView) findViewById(R.id.mobile_list);
+       listView.setAdapter(adapter);
+       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               String  data= adapter.getItem(position).toString();
+               //String v=adapter.getItem(position);
+               Toast.makeText(getApplicationContext(),data,Toast.LENGTH_SHORT).show();
+           }
+       });
+   }
+}
+
+
+
+
+
+
+
+
+—-----------------------Notification
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Hello World!"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+java code :    
+
+
+package com.example.notification;
+
+
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+private static final String CHANNEL_ID= "My Channel";
+   private static final int NOTIFICATION_ID= 100;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.icon, null);
+       BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+       Bitmap largeIcon = bitmapDrawable.getBitmap();
+       NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+       Notification notification;
+       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+           notification = new Notification.Builder(this)
+                   .setLargeIcon(largeIcon)
+                   .setSmallIcon(R.drawable.icon)
+                   .setContentText("Hi, salary of INR 89,657.00 is credited to HDFC Bank A/c XX6567. Aval Bal: INR 10,00,00,000.00")
+                   .setSubText("Congratulation")
+                   .setChannelId(CHANNEL_ID)
+                   .build();
+           nm.createNotificationChannel(new NotificationChannel(CHANNEL_ID, "New Channel", NotificationManager.IMPORTANCE_HIGH));
+       } else {
+           notification = new Notification.Builder(this)
+
+
+
+
+                   .setLargeIcon(largeIcon)
+                   .setSmallIcon(R.drawable.icon)
+                   .setContentText("Your Salary got credited. Your Current Balance is 10,00,00,000")
+                   .setSubText("Congratulation")
+                   .build();
+       }
+       nm.notify(NOTIFICATION_ID, notification);
+
+
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+Broadcast Recievrr
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+
+   <TextView
+       android:id="@+id/tv"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Brodcast Recievre"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+mainActivity.java
+
+
+
+
+
+
+
+
+
+
+package com.example.broadcastreceiver;
+
+
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.widget.TextView;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+TextView tv;
+BatteryReceiver batteryReceiver;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+       tv= findViewById(R.id.tv);
+       batteryReceiver = new BatteryReceiver(tv);
+       registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+   }
+
+
+   @Override
+   protected void onStop() {
+       super.onStop();
+       unregisterReceiver(batteryReceiver);
+   }
+}
+
+
+
+
+
+
+BatteryReciver.java
+
+
+
+
+
+
+
+
+package com.example.broadcastreceiver;
+
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.TextView;
+
+
+public class BatteryReceiver extends BroadcastReceiver {
+   private TextView tv;
+
+
+   public BatteryReceiver(TextView tv) {
+       this.tv = tv;
+   }
+
+
+   @Override
+   public void onReceive(Context context, Intent intent) {
+       int level = intent.getIntExtra("level", 0);
+       tv.setText("Battery Level: " + level + "%");
+   }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+Shared preference
+
+
+
+Activity_main.xml
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity"
+   android:background="#005"
+   android:orientation="vertical"
+   android:gravity="center">
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Parul University"
+       android:textSize="34sp"
+       android:textColor="#FFF"
+       android:textStyle="bold"
+       tools:ignore="MissingConstraints"/>
+
+
+</LinearLayout>
+
+
+
+Activity_login
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:background="#FFC107"
+   android:gravity="center"
+   tools:context=".LoginActivity">
+
+
+   <Button
+       android:id="@+id/btnLogin"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:backgroundTint="#EFDEDE"
+       android:text="Login"
+       android:textColor="#454343" />
+
+
+</LinearLayout>
+
+
+Activity_Home
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:background="#F1C02F"
+   android:orientation="vertical"
+   tools:context=".HomeActivity">
+
+
+   <Button
+       android:id="@+id/btnLogOut"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:backgroundTint="#EFE6E6"
+       android:text="LOGOUT"
+       android:textColor="#292525" />
+
+
+
+
+</RelativeLayout>
+
+
+MainActivity.java
+
+
+
+package com.example.sharedprefrence;
+
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Handler;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+
+
+       new Handler().postDelayed(new Runnable() {
+           @Override
+           public void run() {
+               SharedPreferences pref= getSharedPreferences("Login", MODE_PRIVATE);
+               Boolean check= pref.getBoolean("flag", false);
+               Intent iNext;
+               if(check)
+               {
+                   iNext = new Intent(MainActivity.this, HomeActivity.class);
+               }else{
+                   iNext = new Intent(MainActivity.this, LoginActivity.class);
+               }
+               startActivity(iNext);
+           }
+       },1000);
+   }
+}
+
+
+Login_activity.java
+
+
+
+package com.example.sharedprefrence;
+
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class LoginActivity extends AppCompatActivity {
+Button btnLogin;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_login);
+       btnLogin = findViewById(R.id.btnLogin);
+
+
+       btnLogin.setOnClickListener(new View.OnClickListener()
+       {
+           public void onClick(View view){
+               SharedPreferences pref =  getSharedPreferences("Login", MODE_PRIVATE);
+               SharedPreferences.Editor editor= pref.edit();
+
+
+               editor.putBoolean("flag", true);
+               editor.apply();
+
+
+               Intent iHome= new Intent(LoginActivity.this, HomeActivity.class);
+               startActivity(iHome);
+           }
+       });
+   }
+}
+
+
+
+
+
+Home_activity.java
+
+
+package com.example.sharedprefrence;
+
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class HomeActivity extends AppCompatActivity {
+Button btnLogOut;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_home);
+       btnLogOut = findViewById(R.id.btnLogOut);
+
+
+       btnLogOut.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               SharedPreferences pref= getSharedPreferences("Login", MODE_PRIVATE);
+               SharedPreferences.Editor editor= pref.edit();
+
+
+               editor.putBoolean("flag", false);
+               editor.apply();
+           }
+       });
+   }
+}
+
+
+Context Menu
+
+
+
+mainActivity.xml ……………………….
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/main"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity"
+   android:orientation="vertical"
+   android:gravity="center">
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Long Press Me"
+       android:textSize="30sp"
+       android:textStyle="bold"
+       android:id="@+id/tv"
+       />
+</LinearLayout>
+
+
+MainActivity.java…………………………..
+
+
+package com.example.contextmenu;
+
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+TextView tv;
+LinearLayout main;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       EdgeToEdge.enable(this);
+       setContentView(R.layout.activity_main);
+
+
+       tv= findViewById(R.id.tv);
+       main = findViewById(R.id.main);
+
+
+       registerForContextMenu(tv);
+   }
+
+
+   @Override
+   public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+       super.onCreateContextMenu(menu, v, menuInfo);
+       menu.setHeaderTitle("Choose a Color");
+       menu.add(0, v.getId(), 0, "Light Yellow");
+       menu.add(0, v.getId(), 0, "purple");
+       menu.add(0, v.getId(), 0, "green");
+   }
+
+
+   @Override
+   public boolean onContextItemSelected(@NonNull MenuItem item) {
+       if (item.getTitle() == "Light Yellow") {
+           main.setBackgroundColor(Color.argb(100, 225, 193, 7));
+       }  if (item.getTitle() == "green") {
+           main.setBackgroundColor(Color.argb(100, 3, 209, 111));
+       }  if (item.getTitle() == "purple") {
+           main.setBackgroundColor(Color.argb(100, 89, 64, 187));
+       }
+       return true;
+   }
+}
+
+
+

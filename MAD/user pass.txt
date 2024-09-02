@@ -1,0 +1,169 @@
+If you want to implement a simple user login mechanism without using a database, you can hardcode the username and password in your Android app. Here's a complete example.
+
+### 1. **Project Structure**
+```
+MyLoginApp/
+│
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── AndroidManifest.xml
+│   │   │   ├── java/com/example/myloginapp/
+│   │   │   │   ├── MainActivity.kt
+│   │   │   │   ├── HomeActivity.kt
+│   │   │   ├── res/
+│   │   │   │   ├── layout/
+│   │   │   │   │   ├── activity_main.xml
+│   │   │   │   │   ├── activity_home.xml
+│   └── ...
+```
+
+### 2. **AndroidManifest.xml**
+Declare both activities here.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myloginapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyLoginApp">
+        
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+### 3. **MainActivity.kt**
+This is the login screen where users enter their credentials.
+
+```kotlin
+package com.example.myloginapp
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val usernameEditText: EditText = findViewById(R.id.username)
+        val passwordEditText: EditText = findViewById(R.id.password)
+        val loginButton: Button = findViewById(R.id.login_button)
+
+        loginButton.setOnClickListener {
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
+            // Hardcoded username and password
+            val correctUsername = "admin"
+            val correctPassword = "password123"
+
+            if (username == correctUsername && password == correctPassword) {
+                // Login successful, navigate to HomeActivity
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish() // Finish MainActivity so the user can't go back
+            } else {
+                // Login failed
+                Toast.makeText(this, "Incorrect username or password", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+```
+
+### 4. **HomeActivity.kt**
+This is the activity that users see after a successful login.
+
+```kotlin
+package com.example.myloginapp
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
+class HomeActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+    }
+}
+```
+
+### 5. **activity_main.xml**
+This is the layout for the login screen.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
+```
+
+### 6. **activity_home.xml**
+This is the layout for the home screen after a successful login.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the Home Screen!"
+        android:textSize="24sp"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
+```
+
+### 7. **Build and Run**
+- Ensure that your `build.gradle` files are set up correctly with Kotlin and Android dependencies.
+- Build and run the application on an emulator or a physical device.
+
+This app provides a basic login screen where the username and password are hardcoded. If the credentials match the hardcoded values, the user is navigated to the `HomeActivity`.
